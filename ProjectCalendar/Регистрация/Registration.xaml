@@ -25,11 +25,16 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <Image Name="MinButton" Height="13" Width="13" Margin="5" MouseDown="MinButton_MouseDown">
-                <!--<Image.Style>
-                    <Style TargetType="{x: Type Image}">
-                        <Setter Property="Source" Value="/images/Черта Неактивная.png"/>
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="/images/Крест Неактивный.png"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding }">
+                                <Setter Property="Source" Value="/images/Черта Активная.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
                     </Style>
-                </Image.Style>-->
+                </Image.Style>
             </Image>
 
 

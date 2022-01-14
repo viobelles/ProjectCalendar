@@ -6,31 +6,27 @@
       xmlns:local="clr-namespace:ProjectCalendar.Авторизация"
       mc:Ignorable="d"
       Title="Authorization" 
-      Height="515" Width="365" WindowStyle="None" ResizeMode="NoResize">
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="#FF0C022F" Offset="0"/>
-            <GradientStop Color="#FFFC1153" Offset="1"/>
-            <GradientStop Color="#FF7D0940" Offset="0.591"/>
-        </LinearGradientBrush>
-    </Window.Background>
+      Height="515" Width="365" WindowStyle="None" ResizeMode="NoResize"
+      WindowStartupLocation="CenterScreen" Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="150"/>
             <RowDefinition Height="300"/>
-            <RowDefinition Height="90"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="ToolBar" Grid.Row="0">
-            <Polygon Fill="White" Opacity="0.2"
+
+        <Grid x:Name="ToolBar" Background="Transparent" Grid.Row="0" MouseDown="ToolBar_MouseDown">
+            <Polygon Fill="#FF4D03A5" Opacity="0.3"
                  Points="107,0,
                          115,7,
                          249,7,
                          257,0"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
-            <!--Кнопка сворачивания-->
-                <Image Name="MinButton" Height="13" Width="13" Margin="5">
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <!--Кнопка сворачивания-->
+                <Image Name="MinButton" Height="13" Width="13" Margin="5" MouseDown="MinButton_MouseDown">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Source" Value="/images/Черта Неактивная.png"/>
@@ -42,10 +38,13 @@
                             </Style.Triggers>
                         </Style>
                     </Image.Style>
+                    <Image.Effect>
+                        <BlurEffect Radius="1"/>
+                    </Image.Effect>
                 </Image>
 
                 <!--Кнопка закрытия-->
-                <Image Name="ExitButton" Height="13" Width="13" Margin="6,5,10,5">
+                <Image Name="ExitButton" Height="13" Width="13" Margin="6,5,10,5" MouseDown="ExitButton_MouseDown">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Source" Value="/images/Крест Неактивный.png"/>
@@ -57,12 +56,106 @@
                             </Style.Triggers>
                         </Style>
                     </Image.Style>
-
+                    <Image.Effect>
+                        <BlurEffect Radius="1"/>
+                    </Image.Effect>
                 </Image>
             </StackPanel>
         </Grid>
 
+        <Grid Name="LogoContainer" Background="Transparent" Grid.Row="1" MouseDown="LogoContainer_MouseDown" Opacity="0.8">
+            <Label Content="DAILY REMINDER" 
+                   FontFamily="Helvetica"
+                   FontWeight="Light"
+                   FontSize="35"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Margin="0,0,0,0" Background="{x:Null}">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8416AE" Offset="1"/>
+                        <GradientStop Color="#FF0B0F36"/>
+                        <GradientStop Color="#FF6B1D9F" Offset="0.559"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+            <Image Source="/images/logo.png" 
+                   Height="65" 
+                   Width="65"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,20,0,0"/>
+        </Grid>
+
+        <!--Текст-боксы-->
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox FontFamily="Helvetica"
+                     FontWeight="Light"
+                     Text="Имя пользователя"
+                     FontSize="18"
+                     HorizontalAlignment="Left"
+                     Foreground="DimGray"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Width="235"
+                     HorizontalContentAlignment="Left"
+                     Opacity="0.5"/>
+                <Image Source="/images/login.png" Opacity="0.8" Height="20" Width="20" Margin="0,0,0,10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0" >
+                <Border Width="260"
+                    Height="1"
+                    Background="DimGray"
+                    Opacity="0.5"/>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0">
+                <PasswordBox FontFamily="Helvetica"
+                     FontWeight="Light"
+                     Password="password"
+                     FontSize="18"
+                     HorizontalAlignment="Left"
+                     Foreground="DimGray"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Width="235"
+                     HorizontalContentAlignment="Left"
+                     Opacity="0.5"/>
+                <Image Source="/images/pass.png" Opacity="0.8" Height="20" Width="20" Margin="0,0,0,10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
+                <Border Width="260"
+                    Height="1"
+                    Background="DimGray"
+                    Opacity="0.5"/>
+            </StackPanel>
+
+
+            <!--Кнопки-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="Authorize" 
+                        Height="40" 
+                        Width="120" 
+                        Content="ВОЙТИ" 
+                        FontSize="15"
+                        Margin="0,40,40,0"
+                        Cursor="Hand"/>
+                <Button x:Name="Register"
+                        Height="40" 
+                        Width="120" 
+                        Content="РЕГИСТРАЦИЯ" 
+                        FontSize="15"
+                        Margin="0,40,0,0"  
+                        Cursor="Hand"/>
+            </StackPanel>
+
+
+        </StackPanel>
+
+
     </Grid>
 </Window>
-
-
