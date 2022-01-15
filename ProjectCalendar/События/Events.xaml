@@ -1,0 +1,207 @@
+﻿<Window x:Class="ProjectCalendar.События.Events"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectCalendar.События"
+        mc:Ignorable="d"
+         Title="Создание события" Height="250" Width="480" ResizeMode="NoResize" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <!--Тулбар-->
+        <Grid x:Name="ToolBar" Background="Transparent" Grid.Row="0" MouseDown="ToolBar_MouseDown"/>
+        <Polygon Fill="#FF4D03A5" Opacity="0.3"
+                 Points="107,0,
+                         115,7,
+                         249,7,
+                         257,0" Margin="55,0,0,0"/>
+
+        <!--Кнопки-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <!--Кнопка сворачивания-->
+            <Image Name="MinButton" Height="13" Width="13" Margin="5,6,5,5.8" MouseDown="MinButton_MouseDown">
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="/images/Черта Неактивная.png"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=MinButton}" Value="True">
+                                <Setter Property="Source" Value="/images/Черта Активная.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+                <Image.Effect>
+                    <BlurEffect Radius="0.1"/>
+                </Image.Effect>
+            </Image>
+            <!--Кнопка закрытия-->
+            <Image Name="ExitButton" Height="13" Width="13" Margin="5,6,7,5.8" MouseDown="ExitButton_MouseDown">
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="/images/Крест Неактивный.png"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=ExitButton}" Value="True">
+                                <Setter Property="Source" Value="/images/Крест Активный.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+                <Image.Effect>
+                    <BlurEffect Radius="1.5"/>
+                </Image.Effect>
+            </Image>
+        </StackPanel>
+
+
+        <!--Лейблы-->
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Height="111" Margin="0,19.6,0,19.8" Width="235">
+
+            <Label Content="Имя события:" 
+            FontFamily="Helvetica"
+            FontWeight="Light"
+            FontSize="18"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Margin="20,0,0,0" 
+            Background="{x:Null}" 
+            Height="30" 
+            Width="200">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8416AE" Offset="1"/>
+                        <GradientStop Color="#FF0B0F36"/>
+                        <GradientStop Color="#FF6B1D9F" Offset="0.559"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+
+            <Label Content="Описание:"
+            FontFamily="Helvetica"
+            FontWeight="Light"
+            FontSize="18"
+            Margin="20,0,0,0" 
+            Background="{x:Null}" 
+            Height="30" 
+            Width="200">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8416AE" Offset="1"/>
+                        <GradientStop Color="#FF0B0F36"/>
+                        <GradientStop Color="#FF6B1D9F" Offset="0.559"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+
+            <Label Content="Дата:"
+            FontFamily="Helvetica"
+            FontWeight="Light"
+            FontSize="18"
+            Margin="20,0,0,0" 
+            Background="{x:Null}" 
+            Height="30" 
+            Width="200">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF161DAE" Offset="1"/>
+                        <GradientStop Color="#FF43A3BF"/>
+                        <GradientStop Color="#FF0096DC" Offset="0.36"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+
+            <CheckBox Content="Выполнено"
+                      FontFamily="Helvetica"
+                      FontWeight="Light"
+                      FontSize="13"
+                      Foreground="Purple"
+                      HorizontalAlignment="Center" 
+                      Margin="0,5,90,0" 
+                      VerticalAlignment="Center" 
+                      Height="20" 
+                      Width="85"
+                      Background="#FFE8E8E8"
+                      RenderTransformOrigin="0.606,1.185"
+                      BorderThickness="0"/> 
+        </StackPanel>
+
+        <!--Текстовые поля-->
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,19.6,0,19.8">
+            <TextBox HorizontalAlignment="Left" 
+                     Height="30" 
+                     Width="200" 
+                     Margin="0,0,40,0" 
+                     TextWrapping="Wrap" 
+                     Text="Имя события"
+                     VerticalContentAlignment="Center"
+                     FontFamily="Helvetica"
+                     FontWeight="Light"
+                     FontSize="15"
+                     Foreground="Gray"
+                     BorderThickness="0"
+                     Background="#FFE7E7E7"/>
+
+            <TextBox HorizontalAlignment="Left" 
+                     Height="30" 
+                     Width="200" 
+                     Margin="0,10,40,0" 
+                     TextWrapping="Wrap" 
+                     Text="Описание"
+                     VerticalContentAlignment="Center"
+                     FontFamily="Helvetica"
+                     FontWeight="Light"
+                     FontSize="15"
+                     Foreground="Gray"
+                     BorderThickness="0"
+                     Background="#FFE7E7E7"/>
+
+            <TextBox HorizontalAlignment="Left" 
+                     Height="30" 
+                     Width="200" 
+                     Margin="0,10,40,0" 
+                     TextWrapping="Wrap" 
+                     Text="Дата"
+                     VerticalContentAlignment="Center"
+                     FontFamily="Helvetica"
+                     FontWeight="Light"
+                     FontSize="15"
+                     Foreground="Gray"
+                     BorderThickness="0"
+                     Background="#FFE7E7E7"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0.6,0,-1.6" Width="480">
+
+            <Button Name="CancelBT" 
+                Height="40"
+                Width="90"
+                Content="Закрыть" 
+                FontSize="15"
+                Margin="20,0,146,0"
+                Cursor="Hand" 
+                Click="CancelBT_Click"/>
+
+            <Button Name="SaveBT" 
+                    Height="40"
+                    Width="90"
+                    Content="Сохранить" 
+                    FontSize="15"
+                    Margin="0,0,20,0"
+                    Cursor="Hand"
+                    HorizontalAlignment="Left"/>
+
+            <Button Name="DeleteBT"
+                Height="40"
+                Width="90"
+                Content="Удалить" 
+                FontSize="15"
+                Margin="0,0,0,0"
+                Cursor="Hand"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

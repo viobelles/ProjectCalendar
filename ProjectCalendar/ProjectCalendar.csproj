@@ -58,6 +58,9 @@
     <Compile Include="Регистрация\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="События\Events.xaml.cs">
+      <DependentUpon>Events.xaml</DependentUpon>
+    </Compile>
     <Page Include="Авторизация\Authorization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -82,6 +85,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Регистрация\Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="События\Events.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,17 +128,14 @@
     <Resource Include="Images\Черта Неактивная.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Лого.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\login.png" />
+    <Resource Include="Images\user.png" />
     <Resource Include="Images\pass.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Запись событий\" />
+    <Resource Include="Images\login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectCalendar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="440" Width="440" WindowStyle="None">
+        Title="MainWindow" Height="440" Width="700" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+
+
     <Window.Resources>
         <Style x:Key="CalendarStyle1" TargetType="{x:Type Calendar}">
             <Setter Property="Foreground" Value="#FF333333"/>
@@ -23,7 +26,7 @@
             </Setter>
         </Style>
         <Style x:Key="CalendarItemStyle1" TargetType="{x:Type CalendarItem}">
-            <Setter Property="Margin" Value="0,3,0,3"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type CalendarItem}">
@@ -427,7 +430,7 @@
         </Style>
         <Style x:Key="CalendarStyle2" TargetType="{x:Type Calendar}">
             <Setter Property="Foreground" Value="#FF333333"/>
-            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Background" Value="White"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Template">
@@ -442,9 +445,9 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Viewbox Stretch="Uniform">
+        <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
             <Calendar Style="{DynamicResource CalendarStyle2}" CalendarDayButtonStyle="{DynamicResource CalendarDayButtonStyle1}" CalendarButtonStyle="{DynamicResource CalendarButtonStyle1}" FontFamily="Helvetica"
-                                     FontWeight="Light"/>
+              FontWeight="Light"/>
         </Viewbox>
     </Grid>
 </Window>
