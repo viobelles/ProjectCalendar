@@ -51,6 +51,14 @@ namespace ProjectCalendar.Авторизация
             }
         }
 
+        private void UserTB_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            UserTB.Text = "";
+        }
 
+        private void PassTB_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            PassTB.Password = "";
+        }
     }
 }

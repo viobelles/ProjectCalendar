@@ -130,6 +130,8 @@
     <Resource Include="Images\login.png" />
     <Resource Include="Images\pass.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Запись событий\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

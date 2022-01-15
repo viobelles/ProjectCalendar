@@ -11,33 +11,171 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="150"/>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="280"/>
+            <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
 
+        <!--Тулбар-->
         <Grid x:Name="ToolBar" Background="Transparent" Grid.Row="0" MouseDown="ToolBar_MouseDown"/>
         <Polygon Fill="#FF4D03A5" Opacity="0.3"
                  Points="107,0,
                          115,7,
                          249,7,
                          257,0"/>
-
-
+        <!--Кнопки-->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Image Name="MinButton" Height="13" Width="13" Margin="5" MouseDown="MinButton_MouseDown">
+        <!--Кнопка сворачивания-->
+            <Image Name="MinButton" Height="13" Width="13" Margin="5,6,5,5.8" MouseDown="MinButton_MouseDown">
                 <Image.Style>
                     <Style TargetType="{x:Type Image}">
-                        <Setter Property="Source" Value="/images/Крест Неактивный.png"/>
+                        <Setter Property="Source" Value="/images/Черта Неактивная.png"/>
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding }">
+                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=MinButton}" Value="True">
                                 <Setter Property="Source" Value="/images/Черта Активная.png"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
                 </Image.Style>
+                <Image.Effect>
+                    <BlurEffect Radius="0.1"/>
+                </Image.Effect>
             </Image>
+            <!--Кнопка закрытия-->
+            <Image Name="ExitButton" Height="13" Width="13" Margin="5,6,5,5.8" MouseDown="ExitButton_MouseDown">
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="/images/Крест Неактивный.png"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=ExitButton}" Value="True">
+                                <Setter Property="Source" Value="/images/Крест Активный.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+                <Image.Effect>
+                    <BlurEffect Radius="1.5"/>
+                </Image.Effect>
+            </Image>
+        </StackPanel>
+
+        <!--Лого-->
+        <Grid Name="LogoContainer" Background="Transparent" Grid.Row="1" Opacity="0.8" MouseDown="LogoContainer_MouseDown">
+            <Label Content="DAILY REMINDER" 
+                   FontFamily="Helvetica"
+                   FontWeight="Light"
+                   FontSize="35"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Margin="0,0,0,0" Background="{x:Null}">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8416AE" Offset="1"/>
+                        <GradientStop Color="#FF0B0F36"/>
+                        <GradientStop Color="#FF6B1D9F" Offset="0.559"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+            <Image Source="/images/logo.png" 
+                   Height="65" 
+                   Width="65"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,20,0,0"/>
+        </Grid>
 
 
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox Name="UserTB" FontFamily="Helvetica"
+                     FontWeight="Light"
+                     Text="Имя пользователя"
+                     FontSize="18"
+                     HorizontalAlignment="Left"
+                     Foreground="DimGray"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Width="235"
+                     HorizontalContentAlignment="Left"
+                     Opacity="0.5" PreviewMouseLeftButtonDown="TextBox_PreviewMouseLeftButtonDown"/>
+                <Image Source="/images/login.png" Opacity="0.8" Height="20" Width="20" Margin="0,0,0,10"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0" >
+                <Border Width="260"
+                    Height="1"
+                    Background="DimGray"
+                    Opacity="0.5"/>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0">
+                <TextBox Name="LoginTB"
+                     FontFamily="Helvetica"
+                     FontWeight="Light"
+                     Text="Логин"
+                     FontSize="18"
+                     HorizontalAlignment="Left"
+                     Foreground="DimGray"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Width="235"
+                     HorizontalContentAlignment="Left"
+                     Opacity="0.5" PreviewMouseLeftButtonDown="LoginTB_PreviewMouseLeftButtonDown"/>
+                <Image Source="/images/pass.png" Opacity="0.8" Height="20" Width="20" Margin="0,0,0,10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
+                <Border Width="260"
+                    Height="1"
+                    Background="DimGray"
+                    Opacity="0.5"/>
+            </StackPanel>
+
+
+
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0">
+                <PasswordBox Name="PassTB"
+                     FontFamily="Helvetica"
+                     FontWeight="Light"
+                     Password="password"
+                     FontSize="18"
+                     HorizontalAlignment="Left"
+                     Foreground="DimGray"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Width="235"
+                     HorizontalContentAlignment="Left"
+                     Opacity="0.5" PreviewMouseLeftButtonDown="PassTB_PreviewMouseLeftButtonDown"/>
+                <Image Source="/images/pass.png" Opacity="0.8" Height="20" Width="20" Margin="0,0,0,10"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
+                <Border Width="260"
+                    Height="1"
+                    Background="DimGray"
+                    Opacity="0.5"/>
+            </StackPanel>
+
+            <!--Кнопка Зарегистрироваться-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="SignUp" 
+                        Height="40" 
+                        Width="175" 
+                        Content="ЗАРЕГИСТРИРОВАТЬСЯ" 
+                        FontSize="15"
+                        Margin="0,40,0,0"
+                        Cursor="Hand"/>
+            </StackPanel>
+        </StackPanel>
+        <!--Кнопка У меня уже есть уч. запись-->
+        <StackPanel Grid.Row="3" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="GoAuthorize"
+                        Height="40" 
+                        Width="150" 
+                        Content="У меня уже есть учетная запись" 
+                        FontSize="10"
+                        Margin="0,0,10,10"  
+                        Cursor="Hand"/>
         </StackPanel>
 
     </Grid>

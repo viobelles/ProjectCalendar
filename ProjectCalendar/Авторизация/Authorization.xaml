@@ -90,9 +90,10 @@
         <!--Текст-боксы-->
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBox FontFamily="Helvetica"
+                <TextBox Name="UserTB"
+                     FontFamily="Helvetica"
                      FontWeight="Light"
-                     Text="Имя пользователя"
+                     Text="Логин"
                      FontSize="18"
                      HorizontalAlignment="Left"
                      Foreground="DimGray"
@@ -100,7 +101,7 @@
                      BorderThickness="0"
                      Width="235"
                      HorizontalContentAlignment="Left"
-                     Opacity="0.5"/>
+                     Opacity="0.5" PreviewMouseLeftButtonDown="UserTB_PreviewMouseLeftButtonDown"/>
                 <Image Source="/images/login.png" Opacity="0.8" Height="20" Width="20" Margin="0,0,0,10"/>
             </StackPanel>
 
@@ -113,7 +114,7 @@
 
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0">
-                <PasswordBox FontFamily="Helvetica"
+                <PasswordBox Name="PassTB" FontFamily="Helvetica"
                      FontWeight="Light"
                      Password="password"
                      FontSize="18"
@@ -123,7 +124,7 @@
                      BorderThickness="0"
                      Width="235"
                      HorizontalContentAlignment="Left"
-                     Opacity="0.5"/>
+                     Opacity="0.5" PreviewMouseLeftButtonDown="PassTB_PreviewMouseLeftButtonDown"/>
                 <Image Source="/images/pass.png" Opacity="0.8" Height="20" Width="20" Margin="0,0,0,10"/>
             </StackPanel>
 

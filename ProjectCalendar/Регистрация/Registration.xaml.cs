@@ -36,5 +36,33 @@ namespace ProjectCalendar.Регистрация
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        private void ExitButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void LogoContainer_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void TextBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            UserTB.Text = "";
+        }
+
+        private void PassTB_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            PassTB.Password = "";
+        }
+
+        private void LoginTB_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            LoginTB.Text = "";
+        }
     }
 }
