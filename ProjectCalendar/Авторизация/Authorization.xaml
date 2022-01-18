@@ -44,7 +44,7 @@
                 </Image>
 
                 <!--Кнопка закрытия-->
-                <Image Name="ExitButton" Height="13" Width="13" Margin="6,5,10,5" MouseDown="ExitButton_MouseDown">
+                <Image Name="ExitButton" Height="13" Width="13" Margin="6,5,6,5" MouseDown="ExitButton_MouseDown">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Source" Value="/images/Крест Неактивный.png"/>
@@ -151,7 +151,7 @@
                         Content="РЕГИСТРАЦИЯ" 
                         FontSize="15"
                         Margin="0,40,0,0"  
-                        Cursor="Hand"/>
+                        Cursor="Hand" Click="Register_Click"/>
             </StackPanel>
 
 

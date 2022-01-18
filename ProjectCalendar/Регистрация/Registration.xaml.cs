@@ -69,8 +69,7 @@ namespace ProjectCalendar.Регистрация
         {
                 Авторизация.Authorization auth = new Авторизация.Authorization();
                 auth.Show();
-                Регистрация.Registration reg = new Регистрация.Registration();
-                reg.Close();
+                this.Close();
 
         }
     }

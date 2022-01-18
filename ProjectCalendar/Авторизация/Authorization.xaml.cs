@@ -60,5 +60,18 @@ namespace ProjectCalendar.Авторизация
         {
             PassTB.Password = "";
         }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            Регистрация.Registration reg = new Регистрация.Registration();
+            reg.Show();
+            this.Close();
+
+
+            //Регистрация.Registration reg = new Регистрация.Registration();
+            //reg.Show();
+            //// Close this window
+            //this.Close();
+        }
     }
 }
