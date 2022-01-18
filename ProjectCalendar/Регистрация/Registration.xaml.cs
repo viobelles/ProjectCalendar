@@ -64,5 +64,14 @@ namespace ProjectCalendar.Регистрация
         {
             LoginTB.Text = "";
         }
+
+        private void GoAuthorize_Click(object sender, RoutedEventArgs e)
+        {
+                Авторизация.Authorization auth = new Авторизация.Authorization();
+                auth.Show();
+                Регистрация.Registration reg = new Регистрация.Registration();
+                reg.Close();
+
+        }
     }
 }

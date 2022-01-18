@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ProjectCalendar.Авторизация
 {
     /// <summary>
-    /// Логика взаимодействия для Page1.xaml
+    /// Логика взаимодействия для Authorization.xaml
     /// </summary>
-    public partial class Page1 : Window
+    public partial class Authorization : Window
     {
-        public Page1()
+        public Authorization()
         {
             InitializeComponent();
         }

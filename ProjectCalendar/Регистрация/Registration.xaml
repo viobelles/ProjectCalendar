@@ -175,7 +175,7 @@
                         Content="У меня уже есть учетная запись" 
                         FontSize="10"
                         Margin="0,0,10,10"  
-                        Cursor="Hand"/>
+                        Cursor="Hand" Click="GoAuthorize_Click"/>
         </StackPanel>
 
     </Grid>

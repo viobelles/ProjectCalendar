@@ -2,12 +2,13 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ProjectCalendar"
-             StartupUri="События/Events.xaml">
+             StartupUri="Регистрация/Registration.xaml">
 
     <!--Выбор окна для отладки-->
     <!--StartupUri="Календарь/MainWindow.xaml">-->
     <!--StartupUri="Авторизация/Authorization.xaml">-->
     <!--StartupUri="События/Events.xaml">-->
+    <!--StartupUri="Регистрация/Registration.xaml">-->
 
 
     <Application.Resources>
