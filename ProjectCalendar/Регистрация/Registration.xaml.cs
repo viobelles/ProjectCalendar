@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace ProjectCalendar.Регистрация
 {
@@ -19,10 +20,48 @@ namespace ProjectCalendar.Регистрация
     /// </summary>
     public partial class Registration : Window
     {
+        string connectionString = @"Server=VIOBELLES; Database=UsersDB; Trusted_Connection=True;";
+
+
         public Registration()
         {
             InitializeComponent();
         }
+
+
+        private void SignUp_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserTB.Text == "" || LoginTB.Text == "" || PassTB.Password == "")
+                MessageBox.Show("Заполните все облязательные поля!");
+            else
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    //sqlCon.Open();
+                    //SqlCommand sqlCmd = new SqlCommand("UserAdd", sqlCon);
+                    //sqlCmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    //sqlCmd.Parameters.AddWithValue("@UserName", UserTB.Text.Trim());
+                    //sqlCmd.Parameters.AddWithValue("@Login", LoginTB.Text.Trim());
+                    //sqlCmd.Parameters.AddWithValue("@Password", PassTB.Password.Trim());
+                    //sqlCmd.ExecuteNonQuery();
+                    //MessageBox.Show("Регистрация выполнена успешно!");
+                }
+            }
+        }
+
+
+        //сделать функцию очистки полей после регистрации
+    //    void Clear();
+    //    {
+    //    UserTB.Text = LoginTB.Text = PassTB.Password = "";
+    //};
+
+
+
+
+
+
+
 
         private void ToolBar_MouseDown(object sender, MouseButtonEventArgs e)
         {

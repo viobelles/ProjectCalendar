@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace ProjectCalendar.Авторизация
 {
@@ -51,9 +52,9 @@ namespace ProjectCalendar.Авторизация
             }
         }
 
-        private void UserTB_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void LoginTB_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            UserTB.Text = "";
+            LoginTB.Text = "";
         }
 
         private void PassTB_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -66,12 +67,43 @@ namespace ProjectCalendar.Авторизация
             Регистрация.Registration reg = new Регистрация.Registration();
             reg.Show();
             this.Close();
+        }
+
+        private void Authorize_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection sqlCon = new SqlConnection(@"Server=VIOBELLES; Database=UsersDB; Trusted_Connection=True;");
+            try
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Closed)
+                    sqlCon.Open();
+                string query = "SELECT COUNT(1) FROM tblUsers WHERE Login=@Login AND Password=@Password";
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.CommandType = System.Data.CommandType.Text;
+                //sqlCmd.Parameters.AddWithValue("@UserName", UserTB.Text);
+                sqlCmd.Parameters.AddWithValue("@Login", LoginTB.Text);
+                sqlCmd.Parameters.AddWithValue("@Password", PassTB.Password);
+                int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
+                if (count == 1)
+                {
+                    MainWindow dashboard = new MainWindow();
+                    dashboard.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Логин или пароль введены неверно.");
+                }
 
 
-            //Регистрация.Registration reg = new Регистрация.Registration();
-            //reg.Show();
-            //// Close this window
-            //this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlCon.Close();
+            }
         }
     }
 }

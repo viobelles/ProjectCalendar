@@ -164,7 +164,7 @@
                         Content="ЗАРЕГИСТРИРОВАТЬСЯ" 
                         FontSize="15"
                         Margin="0,40,0,0"
-                        Cursor="Hand"/>
+                        Cursor="Hand" Click="SignUp_Click"/>
             </StackPanel>
         </StackPanel>
         <!--Кнопка У меня уже есть уч. запись-->

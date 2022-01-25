@@ -90,7 +90,7 @@
         <!--Текст-боксы-->
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBox Name="UserTB"
+                <TextBox Name="LoginTB"
                      FontFamily="Helvetica"
                      FontWeight="Light"
                      Text="Логин"
@@ -101,8 +101,8 @@
                      BorderThickness="0"
                      Width="235"
                      HorizontalContentAlignment="Left"
-                     Opacity="0.5" PreviewMouseLeftButtonDown="UserTB_PreviewMouseLeftButtonDown"/>
-                <Image Source="/images/user.png" Opacity="0.8" Height="20" Width="20" Margin="0,0,0,10"/>
+                     Opacity="0.5" PreviewMouseLeftButtonDown="LoginTB_PreviewMouseLeftButtonDown"/>
+                <Image Source="/images/login.png" Opacity="0.8" Height="20" Width="20" Margin="0,0,0,10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0" >
@@ -144,7 +144,7 @@
                         Content="ВОЙТИ" 
                         FontSize="15"
                         Margin="0,40,40,0"
-                        Cursor="Hand"/>
+                        Cursor="Hand" Click="Authorize_Click"/>
                 <Button x:Name="Register"
                         Height="40" 
                         Width="120" 
